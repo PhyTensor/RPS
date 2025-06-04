@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScissorsLib", "Roc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinglePlayerGame", "SinglePlayerGame\SinglePlayerGame.csproj", "{01AAC49E-C0D8-484A-BFAA-586559D35FBE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TCPGame", "TCPGame", "{C9051897-CB90-44D8-B22F-DBFC8D5B1BCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "TCPGame\Server\Server.csproj", "{257CB043-3849-4D94-9D0E-9114FB1B6F02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "TCPGame\Client\Client.csproj", "{1862E65C-0098-4197-B901-3C858AA29605}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +30,17 @@ Global
 		{01AAC49E-C0D8-484A-BFAA-586559D35FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01AAC49E-C0D8-484A-BFAA-586559D35FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01AAC49E-C0D8-484A-BFAA-586559D35FBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{257CB043-3849-4D94-9D0E-9114FB1B6F02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{257CB043-3849-4D94-9D0E-9114FB1B6F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{257CB043-3849-4D94-9D0E-9114FB1B6F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{257CB043-3849-4D94-9D0E-9114FB1B6F02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1862E65C-0098-4197-B901-3C858AA29605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1862E65C-0098-4197-B901-3C858AA29605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1862E65C-0098-4197-B901-3C858AA29605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1862E65C-0098-4197-B901-3C858AA29605}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{257CB043-3849-4D94-9D0E-9114FB1B6F02} = {C9051897-CB90-44D8-B22F-DBFC8D5B1BCB}
+		{1862E65C-0098-4197-B901-3C858AA29605} = {C9051897-CB90-44D8-B22F-DBFC8D5B1BCB}
 	EndGlobalSection
 EndGlobal

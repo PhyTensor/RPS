@@ -13,3 +13,10 @@ public enum RoundResult
     Player2Win,
     Draw
 }
+
+public enum MessageType
+{
+    Choice,
+    Result,
+    Info
+}

@@ -6,7 +6,7 @@ namespace SinglePlayerGame;
 
 public class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
         // GameManager gm = new GameManager(new ComputerPlayer(), new ComputerPlayer());
         GameManager gm = new GameManager(new HumanPlayer(), new ComputerPlayer());
