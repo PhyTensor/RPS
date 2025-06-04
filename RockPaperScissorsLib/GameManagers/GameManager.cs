@@ -5,37 +5,28 @@ namespace RockPaperScissorsLib.GameManagers;
 
 public class GameManager
 {
-    private IPlayer _player1;
-    private IPlayer _player2;
-
-    public GameManager(IPlayer player1, IPlayer player2)
+    public RoundResult PlayRound(IPlayer player1, IPlayer player2)
     {
-        _player1 = player1;
-        _player2 = player2;
-    }
-
-    public RoundResult PlayRound()
-    {
-        Choice player1Choice = _player1.GetChoice();
-        Choice player2Choice = _player2.GetChoice();
+        Choice player1Choice = player1.GetChoice();
+        Choice player2Choice = player2.GetChoice();
 
         Console.WriteLine($"Player 1 picks: {player1Choice.ToString()}");
         Console.WriteLine($"Player 2 picks: {player2Choice.ToString()}");
 
-        if (player1Choice == player2Choice)
-        {
-            return RoundResult.Draw;
-        }
+        return DetermineResult(player1Choice, player2Choice);
+    }
+
+    public RoundResult DetermineResult(Choice c1, Choice c2)
+    {
+        if (c1 == c2) return RoundResult.Draw;
 
         if (
-            player1Choice == Choice.Rock && player2Choice == Choice.Scissors
-            || player1Choice == Choice.Paper && player2Choice == Choice.Rock
-            || player1Choice == Choice.Scissors && player2Choice == Choice.Paper
-        )
-        {
+                (c1 == Choice.Rock && c2 == Choice.Scissors)
+                || (c1 == Choice.Paper && c2 == Choice.Rock)
+                || (c1 == Choice.Scissors && c2 == Choice.Paper)
+            )
             return RoundResult.Player1Win;
-        }
-
-        return RoundResult.Player2Win;
+        else
+            return RoundResult.Player2Win;
     }
 }

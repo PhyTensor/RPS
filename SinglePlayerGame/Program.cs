@@ -9,12 +9,12 @@ public class Program
     public static void Main(string[] args)
     {
         // GameManager gm = new GameManager(new ComputerPlayer(), new ComputerPlayer());
-        GameManager gm = new GameManager(new HumanPlayer(), new ComputerPlayer());
+        GameManager gm = new GameManager();
         // GameManager gm = new GameManager(new HumanPlayer(), new HumanPlayer());
 
         do
         {
-            RoundResult result = gm.PlayRound();
+            RoundResult result = gm.PlayRound(new HumanPlayer(), new ComputerPlayer());
 
             if (result == RoundResult.Player1Win)
             {

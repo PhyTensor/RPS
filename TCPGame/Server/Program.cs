@@ -48,9 +48,11 @@ public class Server
             Choice choice1 = Enum.Parse<Choice>(message1.Payload);
             Choice choice2 = Enum.Parse<Choice>(message2.Payload);
 
-            GameManager gm = new GameManager(new ForcedPlayer(choice: choice1), new ForcedPlayer(choice: choice2));
-
-            RoundResult result = gm.PlayRound();
+            GameManager gm = new GameManager();
+            RoundResult result = gm.PlayRound(
+                new ForcedPlayer(choice: choice1),
+                new ForcedPlayer(choice: choice2)
+            );
 
             Message resultMessage = new Message
             {

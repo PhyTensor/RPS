@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.SignalR;
+using RockPaperScissorsLib.GameManagers;
 using RockPaperScissorsLib.Enums;
 using RockPaperScissorsLib.Models;
 
@@ -19,15 +20,20 @@ public class GameHub : Hub
         if (PlayerChoices.Count == 2)
         {
             List<KeyValuePair<string, Choice>> players = PlayerChoices.ToList();
+
+            foreach (KeyValuePair<string, Choice> player in players)
+                Console.WriteLine($"{player.Key} picked {player.Value}");
+
             KeyValuePair<string, Choice> player1 = players[0];
             KeyValuePair<string, Choice> player2 = players[1];
 
-            RoundResult result = DetermineResult(player1.Value, player2.Value);
+            GameManager gm = new GameManager();
+            RoundResult result = gm.DetermineResult(player1.Value, player2.Value);
 
             GameResult gameResult = new GameResult
             {
-                Player1ConnectionId = player1.Key,
-                Player2ConnectionId = player2.Key,
+                Player1ConnectionId = player1.Key, // connection id of player 1
+                Player2ConnectionId = player2.Key, // connection id of player 2
                 Player1Choice = player1.Value,
                 Player2Choice = player2.Value,
                 Result = result
@@ -41,19 +47,5 @@ public class GameHub : Hub
                 PlayerChoices.Clear();
             }
         }
-    }
-
-    public RoundResult DetermineResult(Choice c1, Choice c2)
-    {
-        if (c1 == c2) return RoundResult.Draw;
-
-        if (c1 == Choice.Rock && c2 == Choice.Scissors)
-            return RoundResult.Player1Win;
-        else if (c1 == Choice.Paper && c2 == Choice.Rock)
-            return RoundResult.Player1Win;
-        else if (c1 == Choice.Scissors && c2 == Choice.Paper)
-            return RoundResult.Player1Win;
-        else
-            return RoundResult.Player2Win;
     }
 }
