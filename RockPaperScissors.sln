@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScissorsGame", "RockPaperScissorsGame\RockPaperScissorsGame.csproj", "{CC0CBB84-979E-4075-944C-2F44C4B3B459}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScissorsLib", "RockPaperScissorsLib\RockPaperScissorsLib.csproj", "{E223BA7D-1BBC-4D32-9120-85536DCAB361}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinglePlayerGame", "SinglePlayerGame\SinglePlayerGame.csproj", "{01AAC49E-C0D8-484A-BFAA-586559D35FBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,13 +16,13 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CC0CBB84-979E-4075-944C-2F44C4B3B459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC0CBB84-979E-4075-944C-2F44C4B3B459}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC0CBB84-979E-4075-944C-2F44C4B3B459}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC0CBB84-979E-4075-944C-2F44C4B3B459}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E223BA7D-1BBC-4D32-9120-85536DCAB361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E223BA7D-1BBC-4D32-9120-85536DCAB361}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E223BA7D-1BBC-4D32-9120-85536DCAB361}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E223BA7D-1BBC-4D32-9120-85536DCAB361}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01AAC49E-C0D8-484A-BFAA-586559D35FBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01AAC49E-C0D8-484A-BFAA-586559D35FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01AAC49E-C0D8-484A-BFAA-586559D35FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01AAC49E-C0D8-484A-BFAA-586559D35FBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

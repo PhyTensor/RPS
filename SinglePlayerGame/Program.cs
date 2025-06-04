@@ -2,12 +2,15 @@
 using RockPaperScissorsLib.GameManagers;
 using RockPaperScissorsLib.Players;
 
+namespace SinglePlayerGame;
+
 public class Program
 {
     static void Main(string[] args)
     {
         // GameManager gm = new GameManager(new ComputerPlayer(), new ComputerPlayer());
-        GameManager gm = new GameManager(new ComputerPlayer(), new HumanPlayer());
+        GameManager gm = new GameManager(new HumanPlayer(), new ComputerPlayer());
+        // GameManager gm = new GameManager(new HumanPlayer(), new HumanPlayer());
 
         do
         {
