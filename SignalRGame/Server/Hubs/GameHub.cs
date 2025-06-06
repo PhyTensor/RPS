@@ -7,8 +7,30 @@ namespace SignalRGame.Server.Hubs;
 
 public class GameHub : Hub
 {
+    private static readonly Dictionary<string, string> ConnectionToUsername = new();
     private static readonly Dictionary<string, Choice> PlayerChoices = new();
     private static readonly object Lock = new();
+
+    public override Task OnDisconnectedAsync(Exception exception)
+    {
+        lock (Lock)
+        {
+            ConnectionToUsername.Remove(Context.ConnectionId);
+            PlayerChoices.Remove(Context.ConnectionId);
+        }
+
+        return base.OnDisconnectedAsync(exception);
+    }
+
+    public Task Register(string username)
+    {
+        lock (Lock)
+        {
+            ConnectionToUsername[Context.ConnectionId] = username;
+        }
+
+        return Task.CompletedTask;
+    }
 
     public async Task MakeChoice(Choice choice)
     {
@@ -21,8 +43,8 @@ public class GameHub : Hub
         {
             List<KeyValuePair<string, Choice>> players = PlayerChoices.ToList();
 
-            foreach (KeyValuePair<string, Choice> player in players)
-                Console.WriteLine($"{player.Key} picked {player.Value}");
+            // foreach (KeyValuePair<string, Choice> player in players)
+            // Console.WriteLine($"{player.Key} picked {player.Value}");
 
             KeyValuePair<string, Choice> player1 = players[0];
             KeyValuePair<string, Choice> player2 = players[1];
@@ -34,6 +56,8 @@ public class GameHub : Hub
             {
                 Player1ConnectionId = player1.Key, // connection id of player 1
                 Player2ConnectionId = player2.Key, // connection id of player 2
+                Player1Username = ConnectionToUsername.GetValueOrDefault(player1.Key, "Player1"),
+                Player2Username = ConnectionToUsername.GetValueOrDefault(player2.Key, "Player2"),
                 Player1Choice = player1.Value,
                 Player2Choice = player2.Value,
                 Result = result
